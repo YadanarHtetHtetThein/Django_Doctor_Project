@@ -10,6 +10,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="{% static 'page/css/main.css' %}" />
     {% if title %}
     <title>{{ title }}</title>
@@ -20,69 +26,90 @@
   <body>
     <!-- Navigation bar Start -->
     <div class="container-fluid bg-dark py-2">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <div class="container-fluid">
-              <a class="navbar-brand text-white" href="{% url 'home-page' %}">Hospital</a>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse container" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <li class="nav-item ms-5 dropdown">
-                    <a
-                      class="nav-link dropdown-toggle text-white"
-                      href="#"
-                      id="navbarDropdown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Doctor
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Show all</a></li>
-                      <li><a class="dropdown-item" href="#">Create category</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item ms-5">
-                    <a class="nav-link text-white" href="{% url 'about-page' %}">About</a>
-                  </li>
-                  <li class="nav-item ms-5 dropdown">
-                    <a
-                      class="nav-link dropdown-toggle text-white"
-                      href="#"
-                      id="navbarDropdown"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      {% if user.is_authenticated %} {{ user.username }} {% else %}
-                      Member {% endif %}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      {% if user.is_authenticated %}
-                      <li><a class="dropdown-item" href="#">Profile</a></li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li><a class="dropdown-item" href="#">Logout</a></li>
-                      {% else %}
-                      <li><a class="dropdown-item" href="#">Login</a></li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li><a class="dropdown-item" href="{% url 'user-register-page' %}">Register</a></li>
-                      {% endif %}
-                    </ul>
-                  </li>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="{% url 'home-page' %}"
+            >Hospital</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse container"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item ms-5 dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-white"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Doctor
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Show all</a></li>
+                  <li><a class="dropdown-item" href="#">Create category</a></li>
                 </ul>
-              </div>
-            </div>
-          </nav>
+              </li>
+              <li class="nav-item ms-5">
+                <a class="nav-link text-white" href="{% url 'about-page' %}"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item ms-5 dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-white"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {% if user.is_authenticated %} {{ user.username }} {% else %}
+                  Member {% endif %}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {% if user.is_authenticated %}
+                  <li><a class="dropdown-item" href="{% url 'user-profile-page' %}">Profile</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'user-logout-page' %}"
+                      >Logout</a
+                    >
+                  </li>
+                  {% else %}
+                  <li>
+                    <a class="dropdown-item" href="{% url 'user-login-page' %}"
+                      >Login</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="{% url 'user-register-page' %}"
+                      >Register</a
+                    >
+                  </li>
+                  {% endif %}
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
     <!-- Navigation bar End -->
 
