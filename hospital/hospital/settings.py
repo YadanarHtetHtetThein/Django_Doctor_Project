@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'page.apps.PageConfig',
     'user.apps.UserConfig',
+    'doctor.apps.DoctorConfig',
     
 ]
 

@@ -1,0 +1,21 @@
+{% extends 'page/base.html' %} 
+{% block content %} 
+    <div class="container mt-3">
+        <h1 class="text-center text-muted">Doctor Show List</h1>
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-md-4">
+                <a href="{% url 'doctor-filter' category.id %}" class="text-decoration-none">
+                    <div class="card bg-primary bg-gradient bg-opacity-10 mb-4">
+                        <div class="card-body p-4">
+                            <p class="text-center"><i class="fa fa-users text-muted fa-5x " aria-hidden="true"></i></p>
+                            <h5 class="card-title text-center">{{ category.name_mm }}</h5>
+                            <p class="card-text text-center fw-bolder">{{ category.name_eng }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

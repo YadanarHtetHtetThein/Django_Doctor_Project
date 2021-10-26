@@ -59,8 +59,10 @@
                   Doctor
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Show all</a></li>
-                  <li><a class="dropdown-item" href="#">Create category</a></li>
+                  <li><a class="dropdown-item" href="{% url 'doctor-show-list' %}">Show all</a></li>
+                  <li><a class="dropdown-item" href="{% url 'doctor-create-category' %}">Create category</a></li>
+                  <li><a class="dropdown-item" href="{% url 'doctor-show' %}">Show doctor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'doctor-create' %}">Create doctor</a></li>
                 </ul>
               </li>
               <li class="nav-item ms-5">
